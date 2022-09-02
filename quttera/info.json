@@ -2,7 +2,7 @@
   "name": "quttera",
   "label": "Quttera",
   "version": "1.0.0",
-  "description": "quttera",
+  "description": "Quttera helps to scan website/domain for malware, ssl and open ports. This connector facilitates automated operations like scan website, get status of scan and get reports of scan etc.",
   "publisher": "Community",
   "cs_approved": false,
   "cs_compatible": true,

@@ -1,0 +1,567 @@
+{
+  "name": "quttera",
+  "label": "Quttera",
+  "version": "1.0.0",
+  "description": "Quttera helps to scan website/domain for malware, ssl and open ports. This connector facilitates automated operations like scan website, get status of scan and get reports of scan etc.",
+  "publisher": "Community",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "category": "Threat Intelligence",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "name": "server_url",
+        "title": "Server URL",
+        "type": "text",
+        "editable": true,
+        "visible": true,
+        "required": true,
+        "value": "http://scannerapi.quttera.com/",
+        "tooltip": "Specify server URL to access Quttera.",
+        "description": "Specify server URL to access Quttera."
+      },
+      {
+        "name": "api_key",
+        "title": "API Key",
+        "type": "text",
+        "editable": true,
+        "visible": true,
+        "required": true,
+        "description": "Specify API Key to access Quttera."
+      },
+      {
+        "name": "verify_ssl",
+        "title": "Verify SSL",
+        "type": "checkbox",
+        "editable": true,
+        "visible": true,
+        "required": false,
+        "value": true,
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "start_url_scan",
+      "title": "Start URL Scan",
+      "annotation": "start_url_scan",
+      "description": "Scan a domain/website (new scan) for malware.",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "output_schema": {},
+      "parameters": [
+        {
+          "name": "domain_name",
+          "title": "Domain Name",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "description": "Specify the Domain/URL that you want to scan."
+        },
+        {
+          "name": "response_format",
+          "title": "Response Format",
+          "type": "select",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": "Json",
+          "description": "Specify response format. By default, It will be Json.",
+          "options": [
+            "Json",
+            "Xml",
+            "Yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "operation": "get_status_of_url_scan",
+      "title": "Get Status of URL Scan",
+      "annotation": "get_status_of_url_scan",
+      "description": "Get the status of the domain/website scan request from Quttera.",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "output_schema": {},
+      "parameters": [
+        {
+          "name": "domain_name",
+          "title": "Domain Name",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "description": "Specify the Domain/URL whose scan status you want to fetch."
+        },
+        {
+          "name": "response_format",
+          "title": "Response Format",
+          "type": "select",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": "Json",
+          "description": "Specify response format. By default, It will be Json.",
+          "options": [
+            "Json",
+            "Xml",
+            "Yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "operation": "get_report_of_url_scan",
+      "title": "Get Report of URL Scan",
+      "annotation": "get_report_of_url_scan",
+      "description": "Get the detailed scan report of the domain/website from Quttera.",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "output_schema": {},
+      "parameters": [
+        {
+          "name": "domain_name",
+          "title": "Domain Name",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "description": "Specify the Domain/URL that you want to scan."
+        },
+        {
+          "name": "response_format",
+          "title": "Response Format",
+          "type": "select",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": "Json",
+          "description": "Specify response format. By default, It will be Json.",
+          "options": [
+            "Json",
+            "Xml",
+            "Yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "operation": "start_ssl_scan",
+      "title": "Start SSL Scan",
+      "annotation": "start_ssl_scan",
+      "description": "Scan website's for SSL certificate.",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "output_schema": {},
+      "parameters": [
+        {
+          "name": "domain_name",
+          "title": "Domain Name",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "description": "Specify the Domain/URL that you want to scan."
+        },
+        {
+          "name": "response_format",
+          "title": "Response Format",
+          "type": "select",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": "Json",
+          "description": "Specify response format. By default, It will be Json.",
+          "options": [
+            "Json",
+            "Xml",
+            "Yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "operation": "get_status_of_ssl_scan",
+      "title": "Get Status of SSL Scan",
+      "annotation": "get_status_of_ssl_scan",
+      "description": "Retrieve the status of the SSL scan.",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "output_schema": {},
+      "parameters": [
+        {
+          "name": "domain_name",
+          "title": "Domain Name",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "description": "Specify the Domain/URL whose SSL scan status you want to fetch."
+        },
+        {
+          "name": "response_format",
+          "title": "Response Format",
+          "type": "select",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": "Json",
+          "description": "Specify response format. By default, It will be Json.",
+          "options": [
+            "Json",
+            "Xml",
+            "Yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "operation": "get_report_of_ssl_scan",
+      "title": "Get Report of SSL Scan",
+      "annotation": "get_report_of_ssl_scan",
+      "description": "Retrieve the detailed SSL scan report of the domain/website from Quttera",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "output_schema": {},
+      "parameters": [
+        {
+          "name": "domain_name",
+          "title": "Domain Name",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "description": "Specify the Domain/URL whose SSL scan report you want to fetch."
+        },
+        {
+          "name": "response_format",
+          "title": "Response Format",
+          "type": "select",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": "Json",
+          "description": "Specify response format. By default, It will be Json.",
+          "options": [
+            "Json",
+            "Xml",
+            "Yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "operation": "start_integrity_scan",
+      "title": "Start Integrity Scan",
+      "annotation": "start_integrity_scan",
+      "description": "Scan a domain/website for integrity issues.",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "output_schema": {},
+      "parameters": [
+        {
+          "name": "domain_name",
+          "title": "Domain Name",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "description": "Specify the Domain/URL whose integrity scan you want to start."
+        },
+        {
+          "name": "response_format",
+          "title": "Response Format",
+          "type": "select",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": "Json",
+          "description": "Specify response format. By default, It will be Json.",
+          "options": [
+            "Json",
+            "Xml",
+            "Yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "operation": "get_status_of_integrity_scan",
+      "title": "Get Status of Integrity Scan",
+      "annotation": "get_status_of_integrity_scan",
+      "description": "Retrieve the status of the domain/website integrity scan request.",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "output_schema": {},
+      "parameters": [
+        {
+          "name": "domain_name",
+          "title": "Domain Name",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "description": "Specify the Domain/URL whose integrity scan request you want to fetch."
+        },
+        {
+          "name": "response_format",
+          "title": "Response Format",
+          "type": "select",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": "Json",
+          "description": "Specify response format. By default, It will be Json.",
+          "options": [
+            "Json",
+            "Xml",
+            "Yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "operation": "get_report_of_integrity_scan",
+      "title": "Get Report of Integrity Scan",
+      "annotation": "get_report_of_integrity_scan",
+      "description": "Retrieve the domain/website integrity scan report.",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "output_schema": {},
+      "parameters": [
+        {
+          "name": "domain_name",
+          "title": "Domain Name",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "description": "Specify the Domain/URL whose integrity scan report you want to fetch."
+        },
+        {
+          "name": "response_format",
+          "title": "Response Format",
+          "type": "select",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": "Json",
+          "description": "Specify response format. By default, It will be Json.",
+          "options": [
+            "Json",
+            "Xml",
+            "Yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "operation": "start_port_scan",
+      "title": "Start Port Scan",
+      "annotation": "start_port_scan",
+      "description": "Start port scan on specified Domain/URL.",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "output_schema": {},
+      "parameters": [
+        {
+          "name": "domain_name",
+          "title": "Domain Name",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "description": "Specify the Domain/URL whose port scan you want to start."
+        },
+        {
+          "name": "response_format",
+          "title": "Response Format",
+          "type": "select",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": "Json",
+          "description": "Specify response format. By default, It will be Json.",
+          "options": [
+            "Json",
+            "Xml",
+            "Yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "operation": "get_status_of_port_scan",
+      "title": "Get Status of Port Scan",
+      "annotation": "get_status_of_port_scan",
+      "description": "Retrieve the status of the port scanning request.",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "output_schema": {},
+      "parameters": [
+        {
+          "name": "domain_name",
+          "title": "Domain Name",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "description": "Specify the Domain/URL whose port scan status you want to fetch."
+        },
+        {
+          "name": "response_format",
+          "title": "Response Format",
+          "type": "select",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": "Json",
+          "description": "Specify response format. By default, It will be Json.",
+          "options": [
+            "Json",
+            "Xml",
+            "Yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "operation": "get_report_of_port_scan",
+      "title": "Get Report of Port Scan",
+      "annotation": "get_report_of_port_scan",
+      "description": "Retrieve the open ports information report of specified Domain/URL.",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "output_schema": {},
+      "parameters": [
+        {
+          "name": "domain_name",
+          "title": "Domain Name",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "description": "Specify the Domain/URL whose port scan report you want to fetch."
+        },
+        {
+          "name": "response_format",
+          "title": "Response Format",
+          "type": "select",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": "Json",
+          "description": "Specify response format. By default, It will be Json.",
+          "options": [
+            "Json",
+            "Xml",
+            "Yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "operation": "get_blacklist_status",
+      "title": "Get Blacklist Status",
+      "annotation": "get_blacklist_status",
+      "description": "Retrieve the blacklisting status of the specified domain/url from Quttera.",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "output_schema": {},
+      "parameters": [
+        {
+          "name": "domain_name",
+          "title": "Domain Name",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "description": "Specify the Domain/URL whose blacklist status you want to fetch."
+        },
+        {
+          "name": "response_format",
+          "title": "Response Format",
+          "type": "select",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": "Json",
+          "description": "Specify response format. By default, It will be Json.",
+          "options": [
+            "Json",
+            "Xml",
+            "Yaml"
+          ]
+        }
+      ]
+    },
+    {
+      "operation": "get_blacklist_report",
+      "title": "Get Blacklist Report",
+      "annotation": "get_blacklist_report",
+      "description": "Retrieve the detailed blacklist report of Domain/URL from Quttera.",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "output_schema": {},
+      "parameters": [
+        {
+          "name": "domain_name",
+          "title": "Domain Name",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "description": "Specify the Domain/URL whose blacklist report you want to fetch."
+        },
+        {
+          "name": "response_format",
+          "title": "Response Format",
+          "type": "select",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": "Json",
+          "description": "Specify response format. By default, It will be Json.",
+          "options": [
+            "Json",
+            "Xml",
+            "Yaml"
+          ]
+        }
+      ]
+    }
+  ]
+}

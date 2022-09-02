@@ -1,0 +1,1167 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "c83302fc-60e2-478d-8ff2-9269b10026e1",
+      "@type": "WorkflowCollection",
+      "name": "Sample - Quttera - 1.0.0",
+      "description": "quttera",
+      "visible": true,
+      "image": null,
+      "recordTags": [
+        "Quttera",
+        "quttera"
+      ],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "9e119963-07b6-43a6-a63e-700092ffbfd3",
+          "collection": "/api/3/workflow_collections/c83302fc-60e2-478d-8ff2-9269b10026e1",
+          "triggerLimit": null,
+          "description": "Scan a domain/website (new scan) for malware.",
+          "name": "Start URL Scan",
+          "tag": "#Quttera",
+          "recordTags": [
+            "Quttera",
+            "quttera"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/68e53659-0c62-43b6-8256-c369f54913d9",
+          "steps": [
+            {
+              "uuid": "68e53659-0c62-43b6-8256-c369f54913d9",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "5212a5b6-9750-4652-bd85-ec053aab5bf9",
+                "title": "Quttera: Start URL Scan",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "684a4a21-2f71-480c-b95f-2e2f465c9b88",
+              "@type": "WorkflowStep",
+              "name": "Start URL Scan",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Quttera",
+                "config": "''",
+                "params": {
+                  "response_format": "Json"
+                },
+                "version": "1.0.0",
+                "connector": "quttera",
+                "operation": "start_url_scan",
+                "operationTitle": "Start URL Scan",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "43a4ae15-5f1d-4765-9f91-01bac2bed602",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Start URL Scan",
+              "sourceStep": "/api/3/workflow_steps/68e53659-0c62-43b6-8256-c369f54913d9",
+              "targetStep": "/api/3/workflow_steps/684a4a21-2f71-480c-b95f-2e2f465c9b88"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "155299b5-df15-4630-ac13-ffe2ba09d7dc",
+          "collection": "/api/3/workflow_collections/c83302fc-60e2-478d-8ff2-9269b10026e1",
+          "triggerLimit": null,
+          "description": "Get the status of the domain/website scan request from Quttera.",
+          "name": "Get Status of URL Scan",
+          "tag": "#Quttera",
+          "recordTags": [
+            "Quttera",
+            "quttera"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/e66160ea-e698-4df7-a045-ea0e23b74d8b",
+          "steps": [
+            {
+              "uuid": "e66160ea-e698-4df7-a045-ea0e23b74d8b",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "1b8b1dfd-6875-49ae-9233-e164e155a048",
+                "title": "Quttera: Get Status of URL Scan",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "dbf476e7-b59d-4fc4-a5ca-926dd33b2c94",
+              "@type": "WorkflowStep",
+              "name": "Get Status of URL Scan",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Quttera",
+                "config": "''",
+                "params": {
+                  "response_format": "Json"
+                },
+                "version": "1.0.0",
+                "connector": "quttera",
+                "operation": "get_status_of_url_scan",
+                "operationTitle": "Get Status of URL Scan",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "d28836b9-79fd-4100-81e8-677604505771",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Status of URL Scan",
+              "sourceStep": "/api/3/workflow_steps/e66160ea-e698-4df7-a045-ea0e23b74d8b",
+              "targetStep": "/api/3/workflow_steps/dbf476e7-b59d-4fc4-a5ca-926dd33b2c94"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "bd28e89d-959e-44e1-aaa0-d18521b29318",
+          "collection": "/api/3/workflow_collections/c83302fc-60e2-478d-8ff2-9269b10026e1",
+          "triggerLimit": null,
+          "description": "Get the detailed scan report of the domain/website from Quttera.",
+          "name": "Get Report of URL Scan",
+          "tag": "#Quttera",
+          "recordTags": [
+            "Quttera",
+            "quttera"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/2ed94265-4a3a-4eee-83b0-ed74d2503d05",
+          "steps": [
+            {
+              "uuid": "2ed94265-4a3a-4eee-83b0-ed74d2503d05",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "8e5a9411-75b7-4870-8877-ac923cfdf6a9",
+                "title": "Quttera: Get Report of URL Scan",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "ccb350dc-9070-41c8-881d-712732f80a4f",
+              "@type": "WorkflowStep",
+              "name": "Get Report of URL Scan",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Quttera",
+                "config": "''",
+                "params": {
+                  "response_format": "Json"
+                },
+                "version": "1.0.0",
+                "connector": "quttera",
+                "operation": "get_report_of_url_scan",
+                "operationTitle": "Get Report of URL Scan",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "364e97ba-f0cd-4d13-8737-fbadd556b30b",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Report of URL Scan",
+              "sourceStep": "/api/3/workflow_steps/2ed94265-4a3a-4eee-83b0-ed74d2503d05",
+              "targetStep": "/api/3/workflow_steps/ccb350dc-9070-41c8-881d-712732f80a4f"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "96647946-72fd-4f6d-8680-63ff13be6e6b",
+          "collection": "/api/3/workflow_collections/c83302fc-60e2-478d-8ff2-9269b10026e1",
+          "triggerLimit": null,
+          "description": "Scan website's for SSL certificate.",
+          "name": "Start SSL Scan",
+          "tag": "#Quttera",
+          "recordTags": [
+            "Quttera",
+            "quttera"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/c076bf25-b69a-4ca1-865d-485390b04642",
+          "steps": [
+            {
+              "uuid": "c076bf25-b69a-4ca1-865d-485390b04642",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "9a5e21cf-68d7-4f93-adf0-293310f113fb",
+                "title": "Quttera: Start SSL Scan",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "4c752bca-93c8-4efb-aa67-9d5732e4678b",
+              "@type": "WorkflowStep",
+              "name": "Start SSL Scan",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Quttera",
+                "config": "''",
+                "params": {
+                  "response_format": "Json"
+                },
+                "version": "1.0.0",
+                "connector": "quttera",
+                "operation": "start_ssl_scan",
+                "operationTitle": "Start SSL Scan",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "ebdb8a72-b886-4b64-be7a-3a5470281131",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Start SSL Scan",
+              "sourceStep": "/api/3/workflow_steps/c076bf25-b69a-4ca1-865d-485390b04642",
+              "targetStep": "/api/3/workflow_steps/4c752bca-93c8-4efb-aa67-9d5732e4678b"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "c020d642-b6a1-4764-a88f-88f87e1aaa87",
+          "collection": "/api/3/workflow_collections/c83302fc-60e2-478d-8ff2-9269b10026e1",
+          "triggerLimit": null,
+          "description": "Retrieve the status of the SSL scan.",
+          "name": "Get Status of SSL Scan",
+          "tag": "#Quttera",
+          "recordTags": [
+            "Quttera",
+            "quttera"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/47ce1d2b-dbcb-4270-a873-d82eeacf734b",
+          "steps": [
+            {
+              "uuid": "47ce1d2b-dbcb-4270-a873-d82eeacf734b",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "9f24a116-9a3b-476d-a3ef-beb7c9e06e5f",
+                "title": "Quttera: Get Status of SSL Scan",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "f925afd2-a9e6-4be9-af4f-41c2c63e8557",
+              "@type": "WorkflowStep",
+              "name": "Get Status of SSL Scan",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Quttera",
+                "config": "''",
+                "params": {
+                  "response_format": "Json"
+                },
+                "version": "1.0.0",
+                "connector": "quttera",
+                "operation": "get_status_of_ssl_scan",
+                "operationTitle": "Get Status of SSL Scan",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "66aa42f3-5a5f-401f-b18e-92b04b56bd74",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Status of SSL Scan",
+              "sourceStep": "/api/3/workflow_steps/47ce1d2b-dbcb-4270-a873-d82eeacf734b",
+              "targetStep": "/api/3/workflow_steps/f925afd2-a9e6-4be9-af4f-41c2c63e8557"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "0c9beb7e-f6ac-4913-83c5-24ca38b363d2",
+          "collection": "/api/3/workflow_collections/c83302fc-60e2-478d-8ff2-9269b10026e1",
+          "triggerLimit": null,
+          "description": "Retrieve the detailed SSL scan report of the domain/website from Quttera",
+          "name": "Get Report of SSL Scan",
+          "tag": "#Quttera",
+          "recordTags": [
+            "Quttera",
+            "quttera"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/216a91f5-0bde-45cb-95a1-6ab62b4638a2",
+          "steps": [
+            {
+              "uuid": "216a91f5-0bde-45cb-95a1-6ab62b4638a2",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "c9d224c8-ee15-40d5-be93-d4ecb6184c05",
+                "title": "Quttera: Get Report of SSL Scan",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "11028b99-1ddc-4d05-94d6-71ff0f941be1",
+              "@type": "WorkflowStep",
+              "name": "Get Report of SSL Scan",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Quttera",
+                "config": "''",
+                "params": {
+                  "response_format": "Json"
+                },
+                "version": "1.0.0",
+                "connector": "quttera",
+                "operation": "get_report_of_ssl_scan",
+                "operationTitle": "Get Report of SSL Scan",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "09c29156-f271-4599-891b-0a4371948bf1",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Report of SSL Scan",
+              "sourceStep": "/api/3/workflow_steps/216a91f5-0bde-45cb-95a1-6ab62b4638a2",
+              "targetStep": "/api/3/workflow_steps/11028b99-1ddc-4d05-94d6-71ff0f941be1"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "a8550f65-3a73-4c1c-bd4f-8665207b2e1e",
+          "collection": "/api/3/workflow_collections/c83302fc-60e2-478d-8ff2-9269b10026e1",
+          "triggerLimit": null,
+          "description": "Scan a domain/website for integrity issues.",
+          "name": "Start Integrity Scan",
+          "tag": "#Quttera",
+          "recordTags": [
+            "Quttera",
+            "quttera"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/1e647f4f-235c-4204-a7eb-98ca5077079a",
+          "steps": [
+            {
+              "uuid": "1e647f4f-235c-4204-a7eb-98ca5077079a",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "7e4b7009-f5f9-49fc-99f9-894360f46576",
+                "title": "Quttera: Start Integrity Scan",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "3ad32409-350b-41ba-8fb6-bb63804cbe17",
+              "@type": "WorkflowStep",
+              "name": "Start Integrity Scan",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Quttera",
+                "config": "''",
+                "params": {
+                  "response_format": "Json"
+                },
+                "version": "1.0.0",
+                "connector": "quttera",
+                "operation": "start_integrity_scan",
+                "operationTitle": "Start Integrity Scan",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "5d1a43c0-7005-4cfa-95d2-740f8552d2ed",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Start Integrity Scan",
+              "sourceStep": "/api/3/workflow_steps/1e647f4f-235c-4204-a7eb-98ca5077079a",
+              "targetStep": "/api/3/workflow_steps/3ad32409-350b-41ba-8fb6-bb63804cbe17"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "3ebf5076-83b6-4b7c-aea7-3f90bf3a906e",
+          "collection": "/api/3/workflow_collections/c83302fc-60e2-478d-8ff2-9269b10026e1",
+          "triggerLimit": null,
+          "description": "Retrieve the status of the domain/website integrity scan request.",
+          "name": "Get Status of Integrity Scan",
+          "tag": "#Quttera",
+          "recordTags": [
+            "Quttera",
+            "quttera"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/9079932a-77bc-498f-9d81-5686d7eb0f31",
+          "steps": [
+            {
+              "uuid": "9079932a-77bc-498f-9d81-5686d7eb0f31",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "a3691223-be22-40fb-8bc9-f13a28b1b248",
+                "title": "Quttera: Get Status of Integrity Scan",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "240e0a0f-a420-463f-aa49-f091c775f2a8",
+              "@type": "WorkflowStep",
+              "name": "Get Status of Integrity Scan",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Quttera",
+                "config": "''",
+                "params": {
+                  "response_format": "Json"
+                },
+                "version": "1.0.0",
+                "connector": "quttera",
+                "operation": "get_status_of_integrity_scan",
+                "operationTitle": "Get Status of Integrity Scan",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "42634bc4-18c8-4bf3-96fe-5db8442a230a",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Status of Integrity Scan",
+              "sourceStep": "/api/3/workflow_steps/9079932a-77bc-498f-9d81-5686d7eb0f31",
+              "targetStep": "/api/3/workflow_steps/240e0a0f-a420-463f-aa49-f091c775f2a8"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "d5da7dcb-4e13-480f-b198-ab32ca4effd4",
+          "collection": "/api/3/workflow_collections/c83302fc-60e2-478d-8ff2-9269b10026e1",
+          "triggerLimit": null,
+          "description": "Retrieve the domain/website integrity scan report.",
+          "name": "Get Report of Integrity Scan",
+          "tag": "#Quttera",
+          "recordTags": [
+            "Quttera",
+            "quttera"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/aa64e502-5c09-4667-992d-28ecd31484b4",
+          "steps": [
+            {
+              "uuid": "aa64e502-5c09-4667-992d-28ecd31484b4",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "646bfa5c-93c9-4631-a989-c1c882c09aac",
+                "title": "Quttera: Get Report of Integrity Scan",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "35c38853-9185-46ca-b9be-e2e1137806e9",
+              "@type": "WorkflowStep",
+              "name": "Get Report of Integrity Scan",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Quttera",
+                "config": "''",
+                "params": {
+                  "response_format": "Json"
+                },
+                "version": "1.0.0",
+                "connector": "quttera",
+                "operation": "get_report_of_integrity_scan",
+                "operationTitle": "Get Report of Integrity Scan",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "2601fba8-cc9e-47c4-9678-a919f4228cc2",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Report of Integrity Scan",
+              "sourceStep": "/api/3/workflow_steps/aa64e502-5c09-4667-992d-28ecd31484b4",
+              "targetStep": "/api/3/workflow_steps/35c38853-9185-46ca-b9be-e2e1137806e9"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "abbeb547-54a9-4502-9bca-739297e29cad",
+          "collection": "/api/3/workflow_collections/c83302fc-60e2-478d-8ff2-9269b10026e1",
+          "triggerLimit": null,
+          "description": "Start port scan on specified Domain/URL.",
+          "name": "Start Port Scan",
+          "tag": "#Quttera",
+          "recordTags": [
+            "Quttera",
+            "quttera"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/ae14ed3b-1894-44b6-927c-09a411bfda1c",
+          "steps": [
+            {
+              "uuid": "ae14ed3b-1894-44b6-927c-09a411bfda1c",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "7904f56c-73a8-4c3c-a3d1-2e866bfecb7f",
+                "title": "Quttera: Start Port Scan",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "b0fda178-26d3-4660-9903-22b062b8b3a8",
+              "@type": "WorkflowStep",
+              "name": "Start Port Scan",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Quttera",
+                "config": "''",
+                "params": {
+                  "response_format": "Json"
+                },
+                "version": "1.0.0",
+                "connector": "quttera",
+                "operation": "start_port_scan",
+                "operationTitle": "Start Port Scan",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "198c47ea-6518-4bdf-b4b6-7a774119a560",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Start Port Scan",
+              "sourceStep": "/api/3/workflow_steps/ae14ed3b-1894-44b6-927c-09a411bfda1c",
+              "targetStep": "/api/3/workflow_steps/b0fda178-26d3-4660-9903-22b062b8b3a8"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "6390b4b8-bcd0-4bfb-9fcf-ef9c8cc088cc",
+          "collection": "/api/3/workflow_collections/c83302fc-60e2-478d-8ff2-9269b10026e1",
+          "triggerLimit": null,
+          "description": "Retrieve the status of the port scanning request.",
+          "name": "Get Status of Port Scan",
+          "tag": "#Quttera",
+          "recordTags": [
+            "Quttera",
+            "quttera"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/eccb44a3-4dc2-4da9-b9ec-174e9346dd4e",
+          "steps": [
+            {
+              "uuid": "eccb44a3-4dc2-4da9-b9ec-174e9346dd4e",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "88b3627a-ff3f-406a-a6ff-eb69a30813af",
+                "title": "Quttera: Get Status of Port Scan",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "6b8b28d8-b0c7-45ab-b5e1-c617cc670d91",
+              "@type": "WorkflowStep",
+              "name": "Get Status of Port Scan",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Quttera",
+                "config": "''",
+                "params": {
+                  "response_format": "Json"
+                },
+                "version": "1.0.0",
+                "connector": "quttera",
+                "operation": "get_status_of_port_scan",
+                "operationTitle": "Get Status of Port Scan",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "55af9ecc-7129-423f-b2b5-97a7d95ce74f",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Status of Port Scan",
+              "sourceStep": "/api/3/workflow_steps/eccb44a3-4dc2-4da9-b9ec-174e9346dd4e",
+              "targetStep": "/api/3/workflow_steps/6b8b28d8-b0c7-45ab-b5e1-c617cc670d91"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "3cb0276f-6f56-4a4d-9660-44f0eef33605",
+          "collection": "/api/3/workflow_collections/c83302fc-60e2-478d-8ff2-9269b10026e1",
+          "triggerLimit": null,
+          "description": "Retrieve the open ports information report of specified Domain/URL.",
+          "name": "Get Report of Port Scan",
+          "tag": "#Quttera",
+          "recordTags": [
+            "Quttera",
+            "quttera"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/e55071b2-21ee-4318-8606-3f6cc06225b5",
+          "steps": [
+            {
+              "uuid": "e55071b2-21ee-4318-8606-3f6cc06225b5",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "2558274f-9095-4a24-a649-1f1375f88745",
+                "title": "Quttera: Get Report of Port Scan",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "540c3eef-098b-485f-aa1f-4483e09c2368",
+              "@type": "WorkflowStep",
+              "name": "Get Report of Port Scan",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Quttera",
+                "config": "''",
+                "params": {
+                  "response_format": "Json"
+                },
+                "version": "1.0.0",
+                "connector": "quttera",
+                "operation": "get_report_of_port_scan",
+                "operationTitle": "Get Report of Port Scan",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "7a4e8024-9acb-43d9-b097-3e7e4ebe256c",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Report of Port Scan",
+              "sourceStep": "/api/3/workflow_steps/e55071b2-21ee-4318-8606-3f6cc06225b5",
+              "targetStep": "/api/3/workflow_steps/540c3eef-098b-485f-aa1f-4483e09c2368"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "ec8ed81a-6f94-4c13-8044-31f65652a9fd",
+          "collection": "/api/3/workflow_collections/c83302fc-60e2-478d-8ff2-9269b10026e1",
+          "triggerLimit": null,
+          "description": "Retrieve the blacklisting status of the specified domain/url from Quttera.",
+          "name": "Get Blacklist Status",
+          "tag": "#Quttera",
+          "recordTags": [
+            "Quttera",
+            "quttera"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/97f3fe7b-0f6b-404a-adbb-39189f00bef3",
+          "steps": [
+            {
+              "uuid": "97f3fe7b-0f6b-404a-adbb-39189f00bef3",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "e16ab5e4-9ce3-4e95-9793-ac7d1b839d43",
+                "title": "Quttera: Get Blacklist Status",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "96ecec70-61e8-4807-94fd-33ce00e7cf44",
+              "@type": "WorkflowStep",
+              "name": "Get Blacklist Status",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Quttera",
+                "config": "''",
+                "params": {
+                  "response_format": "Json"
+                },
+                "version": "1.0.0",
+                "connector": "quttera",
+                "operation": "get_blacklist_status",
+                "operationTitle": "Get Blacklist Status",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "778a0e06-0ef3-4fc3-8915-5ba8ebc9cf4f",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Blacklist Status",
+              "sourceStep": "/api/3/workflow_steps/97f3fe7b-0f6b-404a-adbb-39189f00bef3",
+              "targetStep": "/api/3/workflow_steps/96ecec70-61e8-4807-94fd-33ce00e7cf44"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "f0c43e58-db81-4a29-849c-fba480ab79b9",
+          "collection": "/api/3/workflow_collections/c83302fc-60e2-478d-8ff2-9269b10026e1",
+          "triggerLimit": null,
+          "description": "Retrieve the detailed blacklist report of Domain/URL from Quttera.",
+          "name": "Get Blacklist Report",
+          "tag": "#Quttera",
+          "recordTags": [
+            "Quttera",
+            "quttera"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/c16b7f6d-cea7-46f2-befb-2114f589ef01",
+          "steps": [
+            {
+              "uuid": "c16b7f6d-cea7-46f2-befb-2114f589ef01",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "b3ff70a5-0d0c-44b9-a0d9-5220af0090ef",
+                "title": "Quttera: Get Blacklist Report",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "bd47c948-a59e-4032-9874-1cd5cadba5fe",
+              "@type": "WorkflowStep",
+              "name": "Get Blacklist Report",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Quttera",
+                "config": "''",
+                "params": {
+                  "response_format": "Json"
+                },
+                "version": "1.0.0",
+                "connector": "quttera",
+                "operation": "get_blacklist_report",
+                "operationTitle": "Get Blacklist Report",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "05339ad5-1d30-4b80-986a-bad53e153a7c",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Blacklist Report",
+              "sourceStep": "/api/3/workflow_steps/c16b7f6d-cea7-46f2-befb-2114f589ef01",
+              "targetStep": "/api/3/workflow_steps/bd47c948-a59e-4032-9874-1cd5cadba5fe"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
